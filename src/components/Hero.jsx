@@ -52,7 +52,7 @@ const Hero = () => {
             {t('hero', 'viewProjects')} <ArrowRight size={18} />
           </a>
           <a
-            href="CV (1).pdf"
+            href="/CV.pdf"
             target="_blank"
             className="flex items-center gap-2 px-8 py-4 glass-panel hover:bg-white/5 text-zinc-100 rounded-full font-semibold transition-colors"
           >
