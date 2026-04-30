@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -6,6 +6,18 @@ import { useLanguage } from '../context/LanguageContext';
 const Contact = () => {
   const { getSection } = useLanguage();
   const c = getSection('contact');
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
+    const mailtoLink = `mailto:edogukanergin@gmail.com?subject=Portfolio: ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
+    window.location.href = mailtoLink;
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
 
   return (
     <section id="contact" className="py-24 px-6 relative z-10">
@@ -70,6 +82,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
+            onSubmit={handleSubmit}
             className="glass-panel p-8 space-y-4"
           >
             <div>
@@ -77,8 +90,11 @@ const Contact = () => {
               <input 
                 type="text" 
                 id="name" 
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-100 focus:outline-none focus:border-indigo-500 transition-colors"
                 placeholder={c.formNamePlaceholder}
+                required
               />
             </div>
             <div>
@@ -86,8 +102,11 @@ const Contact = () => {
               <input 
                 type="email" 
                 id="email" 
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-100 focus:outline-none focus:border-indigo-500 transition-colors"
                 placeholder={c.formEmailPlaceholder}
+                required
               />
             </div>
             <div>
@@ -95,12 +114,15 @@ const Contact = () => {
               <textarea 
                 id="message" 
                 rows="4"
+                value={formData.message}
+                onChange={handleChange}
                 className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-100 focus:outline-none focus:border-indigo-500 transition-colors resize-none"
                 placeholder={c.formMessagePlaceholder}
+                required
               ></textarea>
             </div>
             <button 
-              type="button"
+              type="submit"
               className="w-full py-4 bg-zinc-100 text-zinc-950 rounded-lg font-bold hover:bg-zinc-200 transition-colors mt-2"
             >
               {c.sendMessage}
