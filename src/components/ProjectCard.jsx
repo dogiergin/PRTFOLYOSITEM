@@ -36,9 +36,6 @@ const ProjectCard = ({ project, index }) => {
           <a href="#" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">
             <FiGithub size={18} /> {t('projects', 'code')}
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">
-            <FiExternalLink size={18} /> {t('projects', 'demo')}
-          </a>
         </div>
       </div>
     </motion.div>
