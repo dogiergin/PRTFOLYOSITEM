@@ -1,150 +1,67 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, FileText, Image } from 'lucide-react';
+import { X, Image } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import * as pdfjsLib from 'pdfjs-dist';
-
-// PDF.js worker setup
-pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.mjs',
-  import.meta.url
-).toString();
 
 const certificatesData = [
   {
-    image: '/certificates/FordOtosan_Basari_Sertifikasi_Emre_Doğukan_ERGİN.png',
-    pdf: null,
+    image: '/certificates/FordOtosan_Basari_Sertifikasi_Emre_Doğukan_ERGİN.jpg',
     titleEn: 'Ford Otosan Career & Development Week',
     titleTr: 'Ford Otosan Kariyer ve Gelişim Haftası'
   },
   {
     image: '/certificates/inovasyon ile kendini keşfet.jpeg',
-    pdf: null,
     titleEn: 'TalenTree - Innovation & Self Discovery',
     titleTr: 'TalenTree - İnovasyon ile Kendini Keşfet'
   },
   {
-    image: '/certificates/python-basics.png',
-    pdf: null,
+    image: '/certificates/python-basics.jpg',
     titleEn: 'HackerRank - Python (Basic)',
     titleTr: 'HackerRank - Python (Temel)'
   },
   {
-    image: null,
-    pdf: '/certificates/Borusan  Teknoloji.pdf',
+    image: '/certificates/Borusan  Teknoloji.jpg',
     titleEn: 'Borusan Technology School',
     titleTr: 'Borusan Teknoloji Okulu'
   },
   {
-    image: null,
-    pdf: '/certificates/Clean Code 101 Eğitimi.pdf',
+    image: '/certificates/Clean Code 101 Eğitimi.jpg',
     titleEn: 'Clean Code 101 Training',
     titleTr: 'Clean Code 101 Eğitimi'
   },
   {
-    image: null,
-    pdf: '/certificates/Digital  talent summit.pdf',
+    image: '/certificates/Digital  talent summit.jpg',
     titleEn: 'Digital Talent Summit',
     titleTr: 'Digital Talent Summit'
   },
   {
-    image: null,
-    pdf: '/certificates/Makine öğrenmesi  uygulamaları ile veriden  değer yaratma  eğitimi.pdf',
-    titleEn: 'Creating Value from Data with ML Applications',
-    titleTr: 'Makine Öğrenmesi Uygulamaları ile Veriden Değer Yaratma Eğitimi'
-  },
-  {
-    image: null,
-    pdf: '/certificates/SQL\'in Temelleri Eğitimi - Emre Doğukan Ergin.pdf',
+    image: '/certificates/SQL\'in temelleri.jpg',
     titleEn: 'SQL Fundamentals Training',
     titleTr: 'SQL\'in Temelleri Eğitimi'
   },
   {
-    image: null,
-    pdf: '/certificates/gelişim planlama ve takip.pdf',
+    image: '/certificates/gelişim planlama ve takip.jpg',
     titleEn: 'Development Planning & Tracking',
     titleTr: 'Gelişim Planlama ve Takip'
   },
   {
-    image: null,
-    pdf: '/certificates/iş Bankası  pro school  It class.pdf',
+    image: '/certificates/iş Bankası  pro school  It class.jpg',
     titleEn: 'Türkiye İŞ Bankası Pro School IT Class',
     titleTr: 'Türkiye İş Bankası Pro School IT Sınıfı'
   },
   {
-    image: null,
-    pdf: '/certificates/veri bilimi ve yapay zeka temelleri.pdf',
+    image: '/certificates/Veri bilimi ve yapay zeka .jpg',
     titleEn: 'Data Science & AI Fundamentals',
     titleTr: 'Veri Bilimi ve Yapay Zeka Temelleri'
   },
   {
-    image: null,
-    pdf: '/certificates/yapay zekaya ilk adım.pdf',
+    image: '/certificates/yapay zekaya ilk adım.jpg',
     titleEn: 'First Step to AI',
     titleTr: 'Yapay Zekaya İlk Adım'
   },
 ];
 
-// PDF thumbnail component - renders first page of PDF as canvas
-const PdfThumbnail = ({ pdfUrl, alt }) => {
-  const canvasRef = useRef(null);
-  const [loaded, setLoaded] = useState(false);
-  const [error, setError] = useState(false);
 
-  useEffect(() => {
-    let cancelled = false;
-    const renderPdf = async () => {
-      try {
-        const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
-        const page = await pdf.getPage(1);
-        const canvas = canvasRef.current;
-        if (!canvas || cancelled) return;
-
-        const ctx = canvas.getContext('2d');
-        // Render at a reasonable resolution for thumbnail
-        const viewport = page.getViewport({ scale: 1 });
-        const scale = Math.min(400 / viewport.width, 300 / viewport.height);
-        const scaledViewport = page.getViewport({ scale });
-
-        canvas.width = scaledViewport.width;
-        canvas.height = scaledViewport.height;
-
-        await page.render({ canvasContext: ctx, viewport: scaledViewport }).promise;
-        if (!cancelled) setLoaded(true);
-      } catch (err) {
-        console.error('PDF render error:', err);
-        if (!cancelled) setError(true);
-      }
-    };
-    renderPdf();
-    return () => { cancelled = true; };
-  }, [pdfUrl]);
-
-  if (error) {
-    return (
-      <div className="flex flex-col items-center gap-3 text-zinc-500">
-        <FileText size={48} className="text-indigo-400/50" />
-        <span className="text-xs font-medium uppercase tracking-wider">PDF</span>
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <canvas
-        ref={canvasRef}
-        className={`max-w-full max-h-full object-contain transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-        style={{ display: loaded ? 'block' : 'none' }}
-      />
-      {!loaded && (
-        <div className="flex flex-col items-center gap-3 text-zinc-500 animate-pulse">
-          <FileText size={48} className="text-indigo-400/30" />
-          <span className="text-xs font-medium">Yükleniyor...</span>
-        </div>
-      )}
-    </>
-  );
-};
 
 const Certifications = () => {
   const { getSection, language } = useLanguage();
@@ -154,9 +71,7 @@ const Certifications = () => {
   const getTitle = (cert) => language === 'tr' ? cert.titleTr : cert.titleEn;
 
   const handleCertClick = (cert) => {
-    if (cert.pdf) {
-      window.open(cert.pdf, '_blank');
-    } else if (cert.image) {
+    if (cert.image) {
       setSelectedCert(cert);
     }
   };
@@ -187,22 +102,16 @@ const Certifications = () => {
               className="glass-panel p-4 cursor-pointer hover:bg-zinc-900/60 transition-all group hover:scale-[1.03] hover:shadow-lg hover:shadow-indigo-500/10"
             >
               <div className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-zinc-800/50 border border-zinc-700/30 mb-3 flex items-center justify-center">
-                {cert.image ? (
+                {cert.image && (
                   <img 
                     src={cert.image} 
                     alt={getTitle(cert)}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                ) : cert.pdf ? (
-                  <PdfThumbnail pdfUrl={cert.pdf} alt={getTitle(cert)} />
-                ) : null}
+                )}
               </div>
               <div className="flex items-center gap-2">
-                {cert.pdf ? (
-                  <FileText size={14} className="text-indigo-400 flex-shrink-0" />
-                ) : (
-                  <Image size={14} className="text-indigo-400 flex-shrink-0" />
-                )}
+                <Image size={14} className="text-indigo-400 flex-shrink-0" />
                 <p className="text-sm font-medium text-zinc-300 group-hover:text-indigo-300 transition-colors truncate">
                   {getTitle(cert)}
                 </p>
