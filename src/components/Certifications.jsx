@@ -59,6 +59,11 @@ const certificatesData = [
     titleEn: 'First Step to AI',
     titleTr: 'Yapay Zekaya İlk Adım'
   },
+  {
+    image: '/certificates/Makine öğrenmesi  uygulamaları ile veriden  değer yaratma  eğitimi.jpg',
+    titleEn: 'Machine Learning - Creating Value from Data',
+    titleTr: 'Makine Öğrenmesi Uygulamaları ile Veriden Değer Yaratma Eğitimi'
+  },
 ];
 
 
