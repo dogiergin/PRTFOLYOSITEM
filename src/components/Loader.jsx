@@ -35,7 +35,7 @@ const AiLoader = ({ onComplete }) => {
           <span className="loader-letter text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">g</span>
         </div>
 
-        <div className="loader w-16 h-16 rounded-full"></div>
+        <div className="loader w-32 h-32 rounded-full"></div>
         
         <p className="text-zinc-500 text-sm">{Math.min(Math.round(progress), 100)}%</p>
       </div>
