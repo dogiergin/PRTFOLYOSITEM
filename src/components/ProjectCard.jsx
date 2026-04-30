@@ -33,7 +33,7 @@ const ProjectCard = ({ project, index }) => {
         </div>
 
         <div className="flex items-center gap-4 pt-4 border-t border-zinc-800/50">
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">
+          <a href="https://github.com/dogiergin?tab=repositories" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1 text-sm font-medium">
             <FiGithub size={18} /> {t('projects', 'code')}
           </a>
         </div>
