@@ -109,8 +109,11 @@ const Certifications = () => {
               <div className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-zinc-800/50 border border-zinc-700/30 mb-3 flex items-center justify-center">
                 {cert.image && (
                   <img 
-                    src={cert.image} 
+                    src={cert.image}
                     alt={getTitle(cert)}
+                    width={400}
+                    height={300}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 )}
