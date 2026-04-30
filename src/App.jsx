@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Projects from './components/Projects';
-import Certifications from './components/Certifications';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackgroundEffect from './components/BackgroundEffect';
 import Loader from './components/Loader';
 import { LanguageProvider } from './context/LanguageContext';
+
+// Lazy load heavy components for better performance
+const Projects = lazy(() => import('./components/Projects'));
+const Certifications = lazy(() => import('./components/Certifications'));
+const Contact = lazy(() => import('./components/Contact'));
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -22,9 +24,11 @@ function App() {
         <main>
           <Hero />
           <About />
-          <Projects />
-          <Certifications />
-          <Contact />
+          <Suspense fallback={<div className="py-24 text-center text-zinc-500">Yükleniyor...</div>}>
+            <Projects />
+            <Certifications />
+            <Contact />
+          </Suspense>
         </main>
         <Footer />
       </div>
