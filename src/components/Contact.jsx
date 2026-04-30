@@ -11,8 +11,9 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, message } = formData;
-    const mailtoLink = `mailto:edogukanergin@gmail.com?subject=Portfolio: ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
-    window.location.href = mailtoLink;
+    const subject = encodeURIComponent(`Portfolio: ${name}`);
+    const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:edogukanergin@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const handleChange = (e) => {
