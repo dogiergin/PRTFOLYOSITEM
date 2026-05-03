@@ -63,14 +63,14 @@ const translations = {
         {
           degree: "Bachelor Degree in Computer Engineering",
           school: "Karadeniz Technical University, Turkey",
-          year: "2018 - 2025"
+          year: "2018 - 2025",
+          GPA: "3.0/4.0"
         }
       ]
     },
     projects: {
       title: "Featured Projects",
       code: "Code",
-      demo: "Live Demo",
       list: [
         {
           title: "Note Share Platform",
