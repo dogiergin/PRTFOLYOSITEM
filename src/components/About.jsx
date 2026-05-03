@@ -84,7 +84,7 @@ const About = () => {
                  <div key={i}>
                    <h4 className="text-lg font-medium text-indigo-300">{edu.degree}</h4>
                    <p className="text-zinc-400">{edu.school}</p>
-                   <p className="text-sm text-zinc-500">GPA: {edu.gpa}</p>
+                   <p className="text-zinc-500">GPA: {edu.gpa}</p>
                    <span className="text-sm text-zinc-500">{edu.year}</span>
                  </div>
                ))}
