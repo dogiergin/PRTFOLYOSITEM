@@ -100,7 +100,7 @@ const translations = {
       emailLabel: "Email",
       phoneLabel: "Phone",
       locationLabel: "Location",
-      location: "Kadıköy, İstanbul / Turkey",
+      location: "Maltepe, İstanbul / Turkey",
       formName: "Name",
       formEmail: "Email",
       formMessage: "Message",
