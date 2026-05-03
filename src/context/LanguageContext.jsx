@@ -44,19 +44,19 @@ const translations = {
           role: "Software Developer",
           company: "Yaltes Elektronik Ve Bilgi Sistemleri Ticaret A.Ş",
           period: "Jul 2024 - Aug 2024",
-          desc: "Built an OOP-based user registration program with Java using Redis threads."
+          desc: "•	Developed a high-concurrency user registration system using Java and Redis on Linux, handling 1,000 concurrent requests and reducing average response time by 30% through optimized thread pooling and in-memory caching."
         },
         {
           role: "Data Analyst",
           company: "Türkiye Sigorta",
           period: "Aug 2022 - Sep 2022",
-          desc: "Conducted statistical analysis on customer demographics and contributed to ML-based product recommendation algorithms."
+          desc: "•	Contributed to a machine learning recommendation engine that processed 50,000 customer transactions, increasing cross-sell conversion rates by 20% and improving targeted campaign ROI through predictive customer-product mapping."
         },
         {
           role: "Machine Learning Engineer",
           company: "Bizim Hesap Bilgi Sistemleri A.Ş",
           period: "Jun 2021 - Jul 2021",
-          desc: "Developed machine learning models for predictive maintenance and collaborated to optimize neural networks for image recognition."
+          desc: "•	Optimized convolutional neural network architectures for image recognition, improving model accuracy by 15% while reducing inference latency by 25% through hyperparameter tuning, data augmentation, and layer optimization."
         }
       ],
       education: [
