@@ -170,7 +170,7 @@ const translations = {
           role: "Yazılım Geliştiricisi",
           company: "Yaltes Elektronik Ve Bilgi Sistemleri Ticaret A.Ş",
           period: "Tem 2024 - Ağu 2024",
-          desc: "• Java ve Redis kullanarak Linux ortamında yüksek eşzamanlılıkta kullanıcı kayıt sistemi geliştirdim; optimize edilmiş thread havuzu ve önbellekleme ile 1.000+ eşzamanlı isteği yöneterek ortalama yanıt süresini %30 azalttım."
+          desc: "Java ve Redis kullanarak Linux ortamında yüksek eşzamanlılıkta kullanıcı kayıt sistemi geliştirdim; optimize edilmiş thread havuzu ve önbellekleme ile 1.000+ eşzamanlı isteği yöneterek ortalama yanıt süresini %30 azalttım."
         },
         {
           role: "Veri Analisti",
