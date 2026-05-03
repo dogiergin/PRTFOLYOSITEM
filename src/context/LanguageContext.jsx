@@ -189,7 +189,8 @@ const translations = {
         {
           degree: "Bilgisayar Mühendisliği Lisans Derecesesi",
           school: "Karadeniz Teknik Üniversitesi, Türkiye",
-          year: "2018 - 2024"
+          year: "2018 - 2025",
+          GPA: "3.0/4.0"
         }
       ]
     },
@@ -226,7 +227,7 @@ const translations = {
       emailLabel: "E-posta",
       phoneLabel: "Telefon",
       locationLabel: "Konum",
-      location: "Kadıköy, İstanbul / Türkiye",
+      location: "Maltepe, İstanbul / Türkiye",
       formName: "İsim",
       formEmail: "E-posta",
       formMessage: "Mesaj",
