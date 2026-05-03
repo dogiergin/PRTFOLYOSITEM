@@ -63,7 +63,7 @@ const translations = {
         {
           degree: "Bachelor Degree in Computer Engineering",
           school: "Karadeniz Technical University, Turkey",
-          year: "2018 - 2024"
+          year: "2018 - 2025"
         }
       ]
     },
