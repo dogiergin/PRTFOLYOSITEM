@@ -146,8 +146,8 @@ const translations = {
     },
     about: {
       title: "Hakkımda",
-      description1: "Bir Bilgisayar Mühendisi olarak hem yazılım geliştirme hem de veri odaklı sistemler konusunda güçlü bir temele sahibim. Karadeniz Teknik Üniversitesi'ndeki akademik geçmişim bana algoritmalar, sistem mimarisi ve problem çözme teknikleri konularında derin bilgiler kazandırdı.",
-      description2: "Kestirimci bakım için makine öğrenimi modelleri oluşturmaktan full-stack web uygulamaları geliştirmeye kadar karmaşık teknik zorlukların üstesinden gelmeyi seviyorum. Python Veri & Yapay Zeka Bootcamp'leri ve Java Backend Geliştirme gibi sertifikalarla beceri setimi sürekli olarak genişletiyorum.",
+      description1: "Yazılım geliştirme, makine öğrenimi ve veri analizi alanlarında güçlü akademik altyapı ve uygulamalı staj deneyimine sahip yeni mezun Bilgisayar Mühendisi. Java, Python, SQL ve Redis, TensorFlow gibi modern framework'lerde yetkin; Agile ortamlarda ölçeklenebilir, yüksek performanslı çözümler tasarlama konusunda kanıtlanmış becerilere sahip.",
+      description2: "Teknik uzmanlığımı, analitik titizliğimi ve sürekli öğrenme taahhüdümü ileri görüşlü bir mühendislik ekibine katkı sağlamak amacıyla kullanmaya istekliyim. Deneyimli profesyonellerin mentorluğu altında büyüyerek, problem çözme becerilerimi etkili, kullanıcı odaklı yazılım sistemleri geliştirmek için uygulayabileceğim bir Yazılım Geliştirici pozisyonu arıyorum.",
       experienceTitle: "Deneyim",
       coreSkillsTitle: "Temel Yetenekler",
       educationTitle: "Eğitim",
