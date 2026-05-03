@@ -170,19 +170,19 @@ const translations = {
           role: "Yazılım Geliştiricisi",
           company: "Yaltes Elektronik Ve Bilgi Sistemleri Ticaret A.Ş",
           period: "Tem 2024 - Ağu 2024",
-          desc: "Redis threadleri ve Java kullanarak OOP tabanlı bir kullanıcı kayıt programı geliştirdim."
+          desc: "• Java ve Redis kullanarak Linux ortamında yüksek eşzamanlılıkta kullanıcı kayıt sistemi geliştirdim; optimize edilmiş thread havuzu ve önbellekleme ile 1.000+ eşzamanlı isteği yöneterek ortalama yanıt süresini %30 azalttım."
         },
         {
           role: "Veri Analisti",
           company: "Türkiye Sigorta",
           period: "Ağu 2022 - Eyl 2022",
-          desc: "Müşteri demografisi üzerine istatistiksel analizler yürüttüm ve makine öğrenimi tabanlı ürün öneri algoritmalarına katkıda bulundum."
+          desc: "50.000+ müşteri işlemi işleyen makine öğrenimi tabanlı öneri motoruna katkı sağladım; tahmine dayalı müşteri-ürün eşleştirmesi ile çapraz satış dönüşüm oranlarını %20 artırarak hedefli kampanya ROI'sini iyileştirdim."
         },
         {
           role: "Makine Öğrenimi Mühendisi",
           company: "Bizim Hesap Bilgi Sistemleri A.Ş",
           period: "Haz 2021 - Tem 2021",
-          desc: "Kestirimci bakım için makine öğrenimi modelleri geliştirdim ve görüntü tanıma için sinir ağlarını optimize etmek amacıyla ekiplerle işbirliği yaptım."
+          desc: "Görüntü tanıma için evrişimli sinir ağı mimarilerini optimize ettim; hiperparametre ayarı, veri artırma ve katman optimizasyonu ile model doğruluğunu %15 artırırken çıkarım gecikmesini %25 azalttım."
         }
       ],
       education: [
