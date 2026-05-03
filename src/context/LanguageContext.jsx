@@ -64,7 +64,7 @@ const translations = {
           degree: "Bachelor Degree in Computer Engineering",
           school: "Karadeniz Technical University, Turkey",
           year: "2018 - 2025",
-          GPA: "3.0/4.0"
+          gpa: "3.0/4.0"
         }
       ]
     },
@@ -190,7 +190,7 @@ const translations = {
           degree: "Bilgisayar Mühendisliği Lisans Derecesesi",
           school: "Karadeniz Teknik Üniversitesi, Türkiye",
           year: "2018 - 2025",
-          GPA: "3.0/4.0"
+          gpa: "3.0/4.0"
         }
       ]
     },
