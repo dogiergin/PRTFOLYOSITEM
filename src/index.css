@@ -99,3 +99,39 @@ html {
 .loader-letter:nth-child(8) { animation-delay: 0.7s; }
 .loader-letter:nth-child(9) { animation-delay: 0.8s; }
 .loader-letter:nth-child(10) { animation-delay: 0.9s; }
+
+/* Slick Slider Custom Styles */
+.slick-dots {
+  bottom: -40px;
+}
+
+.slick-dots li button:before {
+  color: #6366f1; /* indigo-500 */
+  font-size: 8px;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #818cf8; /* indigo-400 */
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.cert-slider-container .slick-list {
+  overflow: visible;
+}
+
+.cert-slider-container .slick-track {
+  display: flex !important;
+}
+
+.cert-slider-container .slick-slide {
+  height: inherit !important;
+  display: flex !important;
+  justify-content: center;
+}
+
+.cert-slider-container .slick-slide > div {
+  width: 100%;
+}

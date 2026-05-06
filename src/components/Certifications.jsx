@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Image } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const certificatesData = [
   {
@@ -66,7 +70,31 @@ const certificatesData = [
   },
 ];
 
+const NextArrow = (props) => {
+  const { onClick } = props;
+  return (
+    <button
+      onClick={onClick}
+      className="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-zinc-900/80 border border-zinc-700/50 text-zinc-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all duration-300 cursor-pointer group"
+      aria-label="Next"
+    >
+      <ChevronRight size={24} className="group-hover:scale-110 transition-transform" />
+    </button>
+  );
+};
 
+const PrevArrow = (props) => {
+  const { onClick } = props;
+  return (
+    <button
+      onClick={onClick}
+      className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-zinc-900/80 border border-zinc-700/50 text-zinc-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all duration-300 cursor-pointer group"
+      aria-label="Previous"
+    >
+      <ChevronLeft size={24} className="group-hover:scale-110 transition-transform" />
+    </button>
+  );
+};
 
 const Certifications = () => {
   const { getSection, language } = useLanguage();
@@ -81,9 +109,48 @@ const Certifications = () => {
     }
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    centerMode: true,
+    centerPadding: '60px',
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          centerPadding: '40px',
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: '40px',
+          arrows: true,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: '20px',
+          arrows: false,
+        }
+      }
+    ]
+  };
+
   return (
-    <section id="certifications" className="py-24 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
+    <section id="certifications" className="py-24 px-6 relative z-10 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,37 +162,40 @@ const Certifications = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certificatesData.map((cert, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              onClick={() => handleCertClick(cert)}
-              className="glass-panel p-4 cursor-pointer hover:bg-zinc-900/60 transition-all group hover:scale-[1.03] hover:shadow-lg hover:shadow-indigo-500/10"
-            >
-              <div className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-zinc-800/50 border border-zinc-700/30 mb-3 flex items-center justify-center">
-                {cert.image && (
-                  <img 
-                    src={cert.image}
-                    alt={getTitle(cert)}
-                    width={400}
-                    height={300}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                )}
+        <div className="cert-slider-container">
+          <Slider {...settings}>
+            {certificatesData.map((cert, index) => (
+              <div key={index} className="px-2 py-4">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  onClick={() => handleCertClick(cert)}
+                  className="glass-panel p-4 cursor-pointer hover:bg-zinc-900/60 transition-all group hover:shadow-lg hover:shadow-indigo-500/10 h-full"
+                >
+                  <div className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-zinc-800/50 border border-zinc-700/30 mb-3 flex items-center justify-center">
+                    {cert.image && (
+                      <img 
+                        src={cert.image}
+                        alt={getTitle(cert)}
+                        width={400}
+                        height={300}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Image size={14} className="text-indigo-400 flex-shrink-0" />
+                    <p className="text-sm font-medium text-zinc-300 group-hover:text-indigo-300 transition-colors line-clamp-1">
+                      {getTitle(cert)}
+                    </p>
+                  </div>
+                </motion.div>
               </div>
-              <div className="flex items-center gap-2">
-                <Image size={14} className="text-indigo-400 flex-shrink-0" />
-                <p className="text-sm font-medium text-zinc-300 group-hover:text-indigo-300 transition-colors truncate">
-                  {getTitle(cert)}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+            ))}
+          </Slider>
         </div>
       </div>
 
